@@ -10,14 +10,26 @@ import (
 
 func Register() *dig.Container {
 	container := dig.New()
-	container.Provide(func () hoge.HogeClient {
+	err := container.Provide(func () hoge.HogeClient {
 		return client.New("hoge")
 	})
-	container.Provide(func () fuga.FugaClient {
+	if err != nil {
+		panic(err)
+	}
+	err = container.Provide(func () fuga.FugaClient {
 		return client.New("fuga")
 	})
-	container.Provide(hoge.New)
-	container.Provide(fuga.New)
+	if err != nil {
+		panic(err)
+	}
+	err = container.Provide(hoge.New)
+	if err != nil {
+		panic(err)
+	}
+	err = container.Provide(fuga.New)
+	if err != nil {
+		panic(err)
+	}
 
 	return container
 }
