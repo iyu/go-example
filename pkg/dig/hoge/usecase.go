@@ -4,7 +4,7 @@ import (
 	"github.com/iyu/go-example/pkg/dig/client"
 )
 
-type HogeClient client.Client
+type HogeClient = client.Client
 
 type Hoge interface {
 	Name() string

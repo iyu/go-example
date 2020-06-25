@@ -4,7 +4,7 @@ import (
 	"github.com/iyu/go-example/pkg/dig/client"
 )
 
-type FugaClient client.Client
+type FugaClient = client.Client
 
 type Fuga interface {
 	Name() string
